@@ -498,6 +498,36 @@ awful.rules.rules = {
             tag = "1",
             switchtotag = true
         }
+    },
+    {
+        rule_any = { class = {"brave-browser", "Brave-browser"}},
+        properties = {
+            screen = 2,
+            tag = "1",
+            switchtotag = true
+        }
+    },
+    {
+        rule_any = { class = {"discord"}},
+        properties = {
+            screen = 2,
+            tag = "8",
+            switchtotag = true
+        }
+    },
+    {
+        rule_any = { class = {"telegram-desktop", "TelegramDesktop"}},
+        properties = {
+            screen = 2,
+            tag = "9"
+        }
+    },
+    {
+        rule_any = { class = {"code", "Code" }},
+        properties = {
+            screen = 2,
+            tag = "3"
+        }
     }
 }
 -- }}}
