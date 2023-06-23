@@ -318,7 +318,10 @@ globalkeys = gears.table.join(
 
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-        { description = "show the menubar", group = "launcher" })
+        { description = "show the menubar", group = "launcher" }),
+    awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer -D pulse sset Master 2%+", false) end),
+    awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer -D pulse sset Master 2%-", false) end),
+    awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer -D pulse sset Master toggle", false) end)
 )
 
 clientkeys = gears.table.join(
@@ -455,7 +458,7 @@ awful.rules.rules = {
     {
         rule_any = {
             instance = {
-                "DTA", -- Firefox addon DownThemAll.
+                "DTA",   -- Firefox addon DownThemAll.
                 "copyq", -- Includes session name in class.
                 "pinentry",
             },
@@ -464,7 +467,7 @@ awful.rules.rules = {
                 "Blueman-manager",
                 "Gpick",
                 "Kruler",
-                "MessageWin", -- kalarm.
+                "MessageWin",  -- kalarm.
                 "Sxiv",
                 "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
                 "Wpa_gui",
@@ -477,9 +480,9 @@ awful.rules.rules = {
                 "Event Tester", -- xev.
             },
             role = {
-                "AlarmWindow", -- Thunderbird's calendar.
+                "AlarmWindow",   -- Thunderbird's calendar.
                 "ConfigManager", -- Thunderbird's about:config.
-                "pop-up",  -- e.g. Google Chrome's (detached) Developer Tools.
+                "pop-up",        -- e.g. Google Chrome's (detached) Developer Tools.
             }
         },
         properties = { floating = true }
@@ -500,7 +503,7 @@ awful.rules.rules = {
         }
     },
     {
-        rule_any = { class = {"brave-browser", "Brave-browser"}},
+        rule_any = { class = { "brave-browser", "Brave-browser" } },
         properties = {
             screen = 2,
             tag = "1",
@@ -508,7 +511,7 @@ awful.rules.rules = {
         }
     },
     {
-        rule_any = { class = {"discord"}},
+        rule_any = { class = { "discord" } },
         properties = {
             screen = 2,
             tag = "8",
@@ -516,14 +519,14 @@ awful.rules.rules = {
         }
     },
     {
-        rule_any = { class = {"telegram-desktop", "TelegramDesktop"}},
+        rule_any = { class = { "telegram-desktop", "TelegramDesktop" } },
         properties = {
             screen = 2,
             tag = "9"
         }
     },
     {
-        rule_any = { class = {"code", "Code" }},
+        rule_any = { class = { "code", "Code" } },
         properties = {
             screen = 2,
             tag = "3"
