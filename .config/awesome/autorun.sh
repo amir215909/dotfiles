@@ -7,5 +7,7 @@ run() {
   fi
 }
 
-#run "picom"
+#run "bash ~/.config/polybar/launch.sh"
+run "picom"
 #run "nitrogen --restore"
+
