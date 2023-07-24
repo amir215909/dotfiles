@@ -522,14 +522,32 @@ awful.rules.rules = {
         rule_any = { class = { "telegram-desktop", "TelegramDesktop" } },
         properties = {
             screen = 2,
-            tag = "9"
+            tag = "9",
+            switchtotag = true
         }
     },
     {
         rule_any = { class = { "code", "Code" } },
         properties = {
             screen = 2,
-            tag = "3"
+            tag = "3",
+            switchtotag = true
+        }
+    },
+    {
+        rule_any = { class = {"jetbrains-pycharm", "jetbrains-pycharm"} },
+        properties = {
+            screen = 2,
+            tag = "2",
+            switchtotag = true
+        }
+    },
+    {
+        rule_any = { class = {"jetbrains-clion", "jetbrains-clion"} },
+        properties = {
+            screen = 2,
+            tag = "2",
+            switchtotag = true
         }
     }
 }
