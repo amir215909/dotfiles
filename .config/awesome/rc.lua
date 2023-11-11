@@ -267,7 +267,14 @@ globalkeys = gears.table.join(
 
     awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer -D pulse sset Master 2%+", false) end),
     awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer -D pulse sset Master 2%-", false) end),
-    awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer -D pulse sset Master toggle", false) end)
+    awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer -D pulse sset Master toggle", false) end),
+    awful.key({ }, "XF86AudioNext", function () awful.spawn("playerctl next") end),
+    awful.key({ }, "XF86AudioPrev", function () awful.spawn("playerctl previous") end),
+    awful.key({ }, "XF86AudioPlay", function () awful.spawn("playerctl play-pause") end),
+    -- awful.key({ }, "XF86AudioPlay", function () awful.spawn("playerctl play") end),
+    -- awful.key({ }, "XF86AudioPause", function () awful.spawn("playerctl pause") end),
+    awful.key({ }, "XF86AudioStop", function () awful.spawn("playerctl stop") end)
+
 )
 
 clientkeys = gears.table.join(
