@@ -1,6 +1,8 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 
+local primary_screen = 2;
+
 awful.rules.rules = {
     -- All clients will match this rule.
     {
@@ -60,7 +62,7 @@ awful.rules.rules = {
     {
         rule_any = { class = { "google-chrome", "Google-chrome" } },
         properties = {
-            screen = 2,
+            screen = primary_screen,
             tag = "1",
             switchtotag = true
         }
@@ -68,7 +70,7 @@ awful.rules.rules = {
     {
         rule_any = { class = { "brave-browser", "Brave-browser" } },
         properties = {
-            screen = 2,
+            screen = primary_screen,
             tag = "1",
             switchtotag = true
         }
@@ -76,7 +78,7 @@ awful.rules.rules = {
     {
         rule_any = { class = { "discord" } },
         properties = {
-            screen = 2,
+            screen = primary_screen,
             tag = "8",
             switchtotag = true
         }
@@ -84,7 +86,7 @@ awful.rules.rules = {
     {
         rule_any = { class = { "telegram-desktop", "TelegramDesktop" } },
         properties = {
-            screen = 2,
+            screen = primary_screen,
             tag = "9",
             switchtotag = true
         }
@@ -92,7 +94,7 @@ awful.rules.rules = {
     {
         rule_any = { class = { "code", "Code" } },
         properties = {
-            screen = 2,
+            screen = primary_screen,
             tag = "3",
             switchtotag = true
         }
@@ -100,7 +102,7 @@ awful.rules.rules = {
     {
         rule_any = { class = {"jetbrains-pycharm", "jetbrains-pycharm"} },
         properties = {
-            screen = 2,
+            screen = primary_screen,
             tag = "2",
             switchtotag = true
         }
@@ -108,8 +110,16 @@ awful.rules.rules = {
     {
         rule_any = { class = {"jetbrains-clion", "jetbrains-clion"} },
         properties = {
-            screen = 2,
+            screen = primary_screen,
             tag = "2",
+            switchtotag = true
+        }
+    },
+    {
+        rule_any = {class = {"thunar", "Thunar"} },
+        properties = {
+            screen = primary_screen,
+            tag = "6",
             switchtotag = true
         }
     }
