@@ -6,6 +6,8 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
+
+
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
@@ -30,6 +32,9 @@ theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
 
+theme.hotkeys_font = "Jetbrains Mono 13"
+theme.hotkeys_description_font = "Ubuntu Mono 12"
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
@@ -44,7 +49,7 @@ theme.border_marked = "#91231c"
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(0)
+local taglist_square_size = dpi(8)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
 )
