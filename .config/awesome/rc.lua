@@ -38,6 +38,28 @@ do
     end)
 end
 
+-- Define the keyboard layouts you want to switch between
+local layouts = {
+    { "us", "English" }, -- Change "us" to your preferred English layout code
+    { "ir", "Farsi" },   -- Change "fa" to your Farsi layout code
+}
+
+local current_layout = 1 -- Index of the currently active layout
+
+function switch_keyboard_layout()
+    -- Increment the layout index or wrap around if it exceeds the number of layouts
+    current_layout = (current_layout % #layouts) + 1
+
+    -- Set the keyboard layout using setxkbmap
+    awful.spawn("setxkbmap " .. layouts[current_layout][1])
+
+    -- Display a notification with the new layout
+    naughty.notify({
+        text = "Keyboard Layout: " .. layouts[current_layout][2],
+        timeout = 2,
+    })
+end
+
 local theme = "default"
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), theme)
 beautiful.init(theme_path)
@@ -246,17 +268,17 @@ globalkeys = gears.table.join(
     -- Prompt
     awful.key({ modkey }, "d", function() awful.util.spawn("rofi -show drun -show-icons") end,
         { description = "rofi drun", group = "launcher" }),
-
     awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer -D pulse sset Master 2%+", false) end),
     awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer -D pulse sset Master 2%-", false) end),
     awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer -D pulse sset Master toggle", false) end),
-    awful.key({ }, "XF86AudioNext", function () awful.spawn("playerctl next") end),
-    awful.key({ }, "XF86AudioPrev", function () awful.spawn("playerctl previous") end),
-    awful.key({ }, "XF86AudioPlay", function () awful.spawn("playerctl play-pause") end),
+    awful.key({}, "XF86AudioNext", function() awful.spawn("playerctl next") end),
+    awful.key({}, "XF86AudioPrev", function() awful.spawn("playerctl previous") end),
+    awful.key({}, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end),
     -- awful.key({ }, "XF86AudioPlay", function () awful.spawn("playerctl play") end),
     -- awful.key({ }, "XF86AudioPause", function () awful.spawn("playerctl pause") end),
-    awful.key({ }, "XF86AudioStop", function () awful.spawn("playerctl stop") end)
-
+    awful.key({}, "XF86AudioStop", function() awful.spawn("playerctl stop") end),
+    awful.key({ modkey, "Shift" }, "space", switch_keyboard_layout,
+        { description = "Switch Keyboard Layout", group = "keyboard" })
 )
 
 clientkeys = gears.table.join(
