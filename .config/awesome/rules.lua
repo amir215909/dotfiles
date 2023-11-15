@@ -92,6 +92,14 @@ awful.rules.rules = {
         }
     },
     {
+        rule_any = { class = { "slack", "Slack" } },
+        properties = {
+            screen = primary_screen,
+            tag = "9",
+            switchtotag = true
+        }
+    },
+    {
         rule_any = { class = { "code", "Code" } },
         properties = {
             screen = primary_screen,
@@ -109,6 +117,14 @@ awful.rules.rules = {
     },
     {
         rule_any = { class = {"jetbrains-clion", "jetbrains-clion"} },
+        properties = {
+            screen = primary_screen,
+            tag = "2",
+            switchtotag = true
+        }
+    },
+    {
+        rule_any = { class = { "jetbrains-phpstorm", "jetbrains-phpstorm" } },
         properties = {
             screen = primary_screen,
             tag = "2",
