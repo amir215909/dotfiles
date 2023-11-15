@@ -367,12 +367,11 @@ clientbuttons = gears.table.join(
     end)
 )
 
--- Set keys
 root.keys(globalkeys)
--- }}}
 
 require("rules")
 
 require("signals")
 
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+awful.util.spawn("nm-applet")
