@@ -1,7 +1,7 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 
-local primary_screen = 2;
+local primary_screen = 1;
 
 awful.rules.rules = {
     -- All clients will match this rule.

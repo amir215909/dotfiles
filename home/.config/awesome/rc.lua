@@ -9,6 +9,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local xrandr = require("xrandr")
 require("awful.hotkeys_popup.keys")
 
 local debian = require("debian.menu")
@@ -39,7 +40,7 @@ do
 end
 
 -- Define the keyboard layouts you want to switch between
-local layouts = {
+local layouts = { 
     { "us", "English" }, -- Change "us" to your preferred English layout code
     { "ir", "Farsi" },   -- Change "fa" to your Farsi layout code
 }
@@ -195,7 +196,7 @@ globalkeys = gears.table.join(
         { description = "view next", group = "tag" }),
     awful.key({ modkey, }, "Escape", awful.tag.history.restore,
         { description = "go back", group = "tag" }),
-
+    awful.key({ modkey, }, "r", function() xrandr.xrandr() end),
     awful.key({ modkey, }, "j",
         function()
             awful.client.focus.byidx(1)
